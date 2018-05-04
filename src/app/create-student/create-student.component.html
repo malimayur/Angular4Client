@@ -31,15 +31,13 @@
 				class="form-control" id="email" required
 				[(ngModel)]="student.email" name="email">
 		</div>
-		<button class="btn btn-primary" (click)="goBack()">Back</button>
 		<button type="submit" class="btn btn-success">Submit</button>
+		<button type="reset" class="btn btn-primary">Reset</button>
 	</form>
 </div>
 
 <div [hidden]="!submitted">
-	<div class="btn-group ">
-		<h4>You submitted successfully!</h4>
-		<button class="btn btn-primary" (click)="goBack()">Back</button>
-		<button class="btn btn-success" (click)="newCustomer()">Add</button>
-	</div>
+	<h4>You submitted successfully!</h4>
+	<button class="btn btn-primary" (click)="goBack()">Back</button>
+	<button class="btn btn-success" (click)="newCustomer()">Add</button>
 </div>

@@ -1,4 +1,4 @@
-import {Student} from '../Student';
+import {Student} from '../student';
 import {DataService} from '../data.service';
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent implements OnInit {
-student = new Student();
+  student = new Student();
   submitted = false;
   constructor(private dataService: DataService,
     private location: Location) {}
