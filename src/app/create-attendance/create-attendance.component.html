@@ -1,0 +1,59 @@
+<h3>Student/Teacher Attendance </h3>
+<div [hidden]="!submitted">
+	<h4>You submitted successfully!</h4>
+	<!-- <button class="btn btn-primary" (click)="goBack()">Back</button>
+	<button class="btn btn-success" (click)="newCustomer()">Add</button> -->
+</div>
+<div style="width: 300px;">
+	<form>
+		<div class="form-group">
+			<label for="hours">Attendance For (Student/Teacher)</label> <select
+				[(ngModel)]="attendanceFor" name="Select hour" class="form-control"
+				(change)="onChange($event.target.value)" required>
+				<option value=1>Student</option>
+				<option value=2>Teacher</option>
+			</select>
+		</div>
+		
+		<div [hidden]="!enableStudent" class="form-group">
+			<label for="student">Student</label> <select id="student"
+				[(ngModel)]="attendance.studentId" name="Select student"
+				class="form-control" required>
+				<option *ngFor="let student of students" [value]="student.id">
+					{{student.lastName}},{{student.firstName}}</option>
+			</select>
+		</div>
+
+		<div [hidden]="enableStudent" class="form-group">
+			<label for="teacher">Teacher</label> <select id="teacher"
+				[(ngModel)]="attendance.teacherId" name="Select teacher"
+				class="form-control">
+				<option *ngFor="let teacher of teachers" [value]="teacher.id">
+					{{teacher.lastName}},{{teacher.firstName}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label for="attdate">Date</label> <input type="date"
+				class="form-control" id="indate" required
+				[(ngModel)]="attendance.date" name="attdate">
+		</div>
+		
+		<div class="form-group">
+			<label for="intime">In Time</label> <input type="time"
+				class="form-control" id="intime" required
+				[(ngModel)]="attendance.intime" name="intime">
+		</div>
+
+		<div class="form-group">
+			<label for="outtime">Out Time</label> <input type="time"
+				class="form-control" id="outtime" required
+				[(ngModel)]="attendance.outtime" name="outtime">
+		</div>
+		
+		<button class="btn btn-primary" (click)="goBack()">Back</button>
+		<button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+		<button class="btn btn-primary" (click)="reset()">Reset</button>
+	</form>
+</div>
+

@@ -1,13 +1,12 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-  <div class="navbar-header">
-    <a href="#" class="navbar-brand"> Home </a>
-  </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a routerLink="tcm/student" class="navbar-brand" role="button">Student</a></li>
-        <li><a href="#"> Teacher </a></li>
-        <li><a href="#"> Enrollment </a></li>
+      	<li [routerLinkActive]="['active']"> <a [routerLink]="['tcm/home']">Home</a></li>
+      	<li [routerLinkActive]="['active']"> <a [routerLink]="['tcm/searchstudent']">Student</a></li>
+  		<li [routerLinkActive]="['active']"> <a [routerLink]="['tcm/searchteacher']">Teacher</a></li>
+  		<li [routerLinkActive]="['active']"> <a [routerLink]="['tcm/createenrollment']">Enrollment</a></li>
+  		<li [routerLinkActive]="['active']"> <a [routerLink]="['tcm/createattendance']">Attendance</a></li>
         <li><a href="#"> Report </a></li>
       </ul>
      <!--  <ul class="nav navbar-nav navbar-right">

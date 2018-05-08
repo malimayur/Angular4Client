@@ -1,0 +1,19 @@
+<h3>Find Teacher By Last Name</h3>
+<div style="width: 300px;">
+	<form (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="lastname">Last Name</label> <input type="text"
+				class="form-control" id="lastname" required [(ngModel)]="lastName"
+				name="lastname">
+		</div>
+
+		<button class="btn btn-primary" (click)="goBack()">Back</button>
+		<button type="submit" class="btn btn-success">Submit</button>
+		<a routerLink="createteacher" class="btn btn-success" role="button" routerLinkActive="active">Add</a>
+	</form>
+</div>
+<ul>
+	<li *ngFor="let teacher of teachers">
+		<h4>{{teacher.id}} - {{teacher.firstName}} {{teacher.lastName}}</h4>
+	</li>
+</ul>

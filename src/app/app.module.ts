@@ -13,8 +13,13 @@ import {CreateCustomerComponent} from './create-customer/create-customer.compone
 import {enableProdMode} from '@angular/core';
 import {SearchCustomersComponent} from './search-customers/search-customers.component';
 import { HeaderComponent } from './header/header.component';
-import { CreateStudentComponent } from './create-student/create-student.component';
 import { HomeComponent } from './home/home.component';
+import { SearchStudentsComponent } from './search-students/search-students.component';
+import { CreateStudentComponent } from './create-student/create-student.component';
+import { SearchTeachersComponent } from './search-teachers/search-teachers.component';
+import { CreateTeacherComponent } from './create-teacher/create-teacher.component';
+import { CreateEnrollmentComponent } from './create-enrollment/create-enrollment.component';
+import { CreateAttendanceComponent } from './create-attendance/create-attendance.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { HomeComponent } from './home/home.component';
     CreateCustomerComponent,
     SearchCustomersComponent,
     CreateStudentComponent,
-    HomeComponent
+    HomeComponent,
+    SearchStudentsComponent,
+    SearchTeachersComponent,
+    CreateTeacherComponent,
+    CreateEnrollmentComponent,
+    CreateAttendanceComponent
   ],
   imports: [
     BrowserModule,

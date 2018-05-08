@@ -1,4 +1,4 @@
-<h3>Add Student</h3>
+<h3>Add Teacher</h3>
 <div [hidden]="!submitted">
 	<h4>You submitted successfully!</h4>
 	<!-- <button class="btn btn-primary" (click)="goBack()">Back</button>
@@ -9,36 +9,36 @@
 		<div class="form-group">
 			<label for="firstname">First Name</label> <input type="text"
 				class="form-control" id="firstname" required
-				[(ngModel)]="student.firstName" name="firstname">
+				[(ngModel)]="teacher.firstName" name="firstname">
 		</div>
 
 		<div class="form-group">
 			<label for="lastname">Last Name</label> <input type="text"
 				class="form-control" id="lastname" required
-				[(ngModel)]="student.lastName" name="lastname">
+				[(ngModel)]="teacher.lastName" name="lastname">
 		</div>
 		
 		<div class="form-group">
 			<label for="address">Address</label> <input type="text"
 				class="form-control" id="address" required
-				[(ngModel)]="student.address" name="address">
+				[(ngModel)]="teacher.address" name="address">
 		</div>
 		
 		<div class="form-group">
 			<label for="address">Phone</label> <input type="text"
 				class="form-control" id="phone" required
-				[(ngModel)]="student.phone" name="phone">
+				[(ngModel)]="teacher.phone" name="phone">
 		</div>
 		
 		<div class="form-group">
 			<label for="address">Email</label> <input type="text"
 				class="form-control" id="email" required
-				[(ngModel)]="student.email" name="email">
+				[(ngModel)]="teacher.email" name="email">
 		</div>
 		<button class="btn btn-primary" (click)="goBack()">Back</button>
 		<button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
 		<button class="btn btn-primary" (click)="reset()">Reset</button>
-		<!-- <button type="reset" class="btn btn-primary">Reset</button> -->
 	</form>
 </div>
+
 

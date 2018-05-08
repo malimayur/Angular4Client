@@ -5,12 +5,16 @@ import 'rxjs/add/operator/toPromise';
 
 import { Customer } from './customer';
 import { Student } from './student';
+import { Teacher } from './teacher';
+import { Subject } from './subject';
 
 @Injectable()
 export class DataService {
 
-  private customersUrl = 'tcm/customer';  // URL to web API
-  private studentUrl = 'tcm/student';  // URL to web API
+  private customersUrl = 'customer';  // URL to web API
+  private studentUrl = 'student';  // URL to web API
+  private teacherUrl = 'teacher';  // URL to web API
+  private subjectUrl = 'subject';  // URL to web API
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
@@ -61,7 +65,7 @@ export class DataService {
   }
 
   getStudentByLastName(lastName: string): Promise<Student[]> {
-    const url = `findbystudentlastname/${lastName}`;
+    const url = `findstudentbylastname/${lastName}`;
     return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Student)
@@ -70,7 +74,7 @@ export class DataService {
 
   createStudent(student: Student): Promise<Student> {
     return this.http
-      .post('tcm/poststudent', JSON.stringify(student), {headers : this.headers})
+      .post('createstudent', JSON.stringify(student), {headers : this.headers})
       .toPromise()
       .then(res => res.json() as Student)
       .catch(this.handleError);
@@ -81,6 +85,46 @@ export class DataService {
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
+      .catch(this.handleError);
+  }
+
+  // Get all teacher
+  getTeachers(): Promise<Teacher[]> {
+    return this.http.get(this.teacherUrl)
+      .toPromise()
+      .then(response => response.json() as Teacher[])
+      .catch(this.handleError);
+  }
+
+  getTeacherByLastName(lastName: string): Promise<Teacher[]> {
+    const url = `findteacherbylastname/${lastName}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Teacher)
+      .catch(this.handleError);
+  }
+
+  createTeacher(teacher: Teacher): Promise<Teacher> {
+    return this.http
+      .post('createteacher', JSON.stringify(teacher), {headers : this.headers})
+      .toPromise()
+      .then(res => res.json() as Teacher)
+      .catch(this.handleError);
+  }
+
+  deleteTeacher(id: number): Promise<void> {
+    const url = `${this.teacherUrl}/${id}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
+
+  // Get all subjects
+  getSubjects(): Promise<Subject[]> {
+    return this.http.get(this.subjectUrl)
+      .toPromise()
+      .then(response => response.json() as Subject[])
       .catch(this.handleError);
   }
 }

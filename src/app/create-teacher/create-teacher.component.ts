@@ -1,16 +1,16 @@
-import {Student} from '../student';
+import {Teacher} from '../teacher';
 import {DataService} from '../data.service';
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 
-
 @Component({
-  selector: 'app-create-student',
-  templateUrl: './create-student.component.html',
-  styleUrls: ['./create-student.component.css']
+  selector: 'app-create-teacher',
+  templateUrl: './create-teacher.component.html',
+  styleUrls: ['./create-teacher.component.css']
 })
-export class CreateStudentComponent implements OnInit {
-  student = new Student();
+export class CreateTeacherComponent implements OnInit {
+
+  teacher = new Teacher();
   submitted = false;
   constructor(private dataService: DataService,
     private location: Location) {}
@@ -19,13 +19,13 @@ export class CreateStudentComponent implements OnInit {
   }
 
   private save(): void {
-    this.dataService.createStudent(this.student);
+    this.dataService.createTeacher(this.teacher);
   }
 
   onSubmit() {
     this.submitted = true;
     this.save();
-    this.student = new Student();
+    this.teacher = new Teacher();
   }
 
   goBack(): void {
@@ -33,6 +33,6 @@ export class CreateStudentComponent implements OnInit {
   }
   reset(): void {
     this.submitted = false;
-    this.student = new Student();
+    this.teacher = new Teacher();
   }
 }
