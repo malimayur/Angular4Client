@@ -36,10 +36,10 @@ export class CreateAttendanceComponent implements OnInit {
   }
 
   private save(): void {
-    //this.dataService.createStudent(this.student);
+    this.dataService.createAttendance(this.attendance);
   }
 
-  private onChange(): void {
+  private onChange(id: number): void {
     if (this.attendanceFor === '2') {
         this.enableStudent = false;
     } else {

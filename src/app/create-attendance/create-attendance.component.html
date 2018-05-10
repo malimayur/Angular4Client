@@ -16,19 +16,19 @@
 		</div>
 		
 		<div [hidden]="!enableStudent" class="form-group">
-			<label for="student">Student</label> <select id="student"
-				[(ngModel)]="attendance.studentId" name="Select student"
+			<label for="student">Student</label> <select id="student" #selectElem
+				[(ngModel)]="attendance.student" name="Select student" 
 				class="form-control" required>
-				<option *ngFor="let student of students" [value]="student.id">
+				<option *ngFor="let student of students" [ngValue]="student">
 					{{student.lastName}},{{student.firstName}}</option>
 			</select>
 		</div>
 
 		<div [hidden]="enableStudent" class="form-group">
 			<label for="teacher">Teacher</label> <select id="teacher"
-				[(ngModel)]="attendance.teacherId" name="Select teacher"
+				[(ngModel)]="attendance.teacher" name="Select teacher"
 				class="form-control">
-				<option *ngFor="let teacher of teachers" [value]="teacher.id">
+				<option *ngFor="let teacher of teachers" [ngValue]="teacher">
 					{{teacher.lastName}},{{teacher.firstName}}</option>
 			</select>
 		</div>
@@ -42,13 +42,13 @@
 		<div class="form-group">
 			<label for="intime">In Time</label> <input type="time"
 				class="form-control" id="intime" required
-				[(ngModel)]="attendance.intime" name="intime">
+				[(ngModel)]="attendance.inTime" name="intime">
 		</div>
 
 		<div class="form-group">
 			<label for="outtime">Out Time</label> <input type="time"
 				class="form-control" id="outtime" required
-				[(ngModel)]="attendance.outtime" name="outtime">
+				[(ngModel)]="attendance.outTime" name="outtime">
 		</div>
 		
 		<button class="btn btn-primary" (click)="goBack()">Back</button>

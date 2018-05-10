@@ -7,6 +7,7 @@ import { Customer } from './customer';
 import { Student } from './student';
 import { Teacher } from './teacher';
 import { Subject } from './subject';
+import { Attendance } from './attendance';
 
 @Injectable()
 export class DataService {
@@ -125,6 +126,15 @@ export class DataService {
     return this.http.get(this.subjectUrl)
       .toPromise()
       .then(response => response.json() as Subject[])
+      .catch(this.handleError);
+  }
+
+  // Attendance
+  createAttendance(attendance: Attendance): Promise<Attendance> {
+    return this.http
+      .post('createattendance', JSON.stringify(attendance), {headers : this.headers})
+      .toPromise()
+      .then(res => res.json() as Attendance)
       .catch(this.handleError);
   }
 }
