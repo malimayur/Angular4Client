@@ -8,27 +8,27 @@
 	<form>
 		<div class="form-group">
 			<label for="student">Student</label> <select id="student"
-				[(ngModel)]="enroll.studentId" name="Select student"
+				[(ngModel)]="enrollment.student" name="Select student"
 				class="form-control" required>
-				<option *ngFor="let student of students" [value]="student.id">
+				<option *ngFor="let student of students" [ngValue]="student">
 					{{student.lastName}},{{student.firstName}}</option>
 			</select>
 		</div>
 
 		<div class="form-group">
 			<label for="teacher">Teacher</label> <select id="teacher"
-				[(ngModel)]="enroll.teacherId" name="Select teacher"
+				[(ngModel)]="enrollment.teacher" name="Select teacher"
 				class="form-control">
-				<option *ngFor="let teacher of teachers" [value]="teacher.id">
+				<option *ngFor="let teacher of teachers" [ngValue]="teacher">
 					{{teacher.lastName}},{{teacher.firstName}}</option>
 			</select>
 		</div>
 		
 		<div class="form-group">
 			<label for="subject">Subject</label> <select id="subject"
-				[(ngModel)]="enroll.subjectId" name="Select subject"
+				[(ngModel)]="enrollment.subject" name="Select subject"
 				class="form-control">
-				<option *ngFor="let subject of subjects" [value]="subject.id">
+				<option *ngFor="let subject of subjects" [ngValue]="subject">
 					{{subject.name}}</option>
 			</select>
 		</div>
@@ -36,30 +36,18 @@
 		<div class="form-group">
 			<label for="startdate">Start Date</label> <input type="date"
 				class="form-control" id="startdate" required
-				[(ngModel)]="enroll.startdate" name="startdate">
+				[(ngModel)]="enrollment.startDate" name="startdate">
 		</div>
 
 		<div class="form-group">
 			<label for="enddate">End Date</label> <input type="date"
 				class="form-control" id="enddate" required
-				[(ngModel)]="enroll.enddate" name="enddate">
-		</div>
-
-		<div class="form-group">
-			<label for="timeslot">Time Slot</label> <input type="text"
-				class="form-control" id="timeslot" required
-				[(ngModel)]="enroll.timeslot" name="timeslot">
-		</div>
-
-		<div class="form-group">
-			<label for="location">Location</label> <input type="text"
-				class="form-control" id="location" required
-				[(ngModel)]="enroll.location" name="location">
+				[(ngModel)]="enrollment.endDate" name="enddate">
 		</div>
 
 		<div class="form-group">
 			<label for="hours">Class Hours</label> <select
-				[(ngModel)]="enroll.hours" name="Select hour" class="form-control"
+				[(ngModel)]="enrollment.hours" name="Select hour" class="form-control"
 				required>
 				<option value="60">60 min</option>
 				<option value="90">90 min</option>
@@ -69,17 +57,22 @@
 		<div class="form-group">
 			<label for="amount">Amount</label> <input type="text"
 				class="form-control" id="amount" required
-				[(ngModel)]="enroll.amount" name="amount">
+				[(ngModel)]="enrollment.amount" name="amount">
 		</div>
 
 		<div class="form-group">
 			<label for="paymenttype">Payment Type</label> <select
-				[(ngModel)]="enroll.paymenttype" name="Select payment type" class="form-control"
+				[(ngModel)]="enrollment.paymentType" name="Select payment type" class="form-control"
 				required>
 				<option value="own">Own</option>
 				<option value="scholarship">Scholarship</option>
 			</select> 
-
+		</div>
+		
+		<div class="form-group">
+			<label for="location">Location</label> <input type="text"
+				class="form-control" id="location" required
+				[(ngModel)]="enrollment.location" name="location">
 		</div>
 
 		<button class="btn btn-primary" (click)="goBack()">Back</button>

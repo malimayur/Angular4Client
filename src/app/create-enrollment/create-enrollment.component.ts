@@ -17,12 +17,7 @@ export class CreateEnrollmentComponent implements OnInit {
   students: Student[];
   teachers: Teacher[];
   subjects: Subject[];
-  //studentId: number;
-  //teacherId: number;
-  //startdate: string;
-  //enddate: string;
-
-  enroll = new Enrollment();
+  enrollment = new Enrollment();
   constructor(private dataService: DataService,
       private location: Location) {}
 
@@ -45,15 +40,13 @@ export class CreateEnrollmentComponent implements OnInit {
   }
 
   private save(): void {
-    //this.enroll.studentId = this.studentId;
-    //this.enroll.teacherId = this.teacherId;
-    //this.dataService.createStudent(this.student);
+    this.dataService.createEnrollment(this.enrollment);
   }
 
   onSubmit() {
     this.submitted = true;
     this.save();
-    this.enroll = new Enrollment();
+    this.enrollment = new Enrollment();
   }
 
   goBack(): void {
@@ -61,6 +54,6 @@ export class CreateEnrollmentComponent implements OnInit {
   }
   reset(): void {
     this.submitted = false;
-    this.enroll = new Enrollment();
+    this.enrollment = new Enrollment();
   }
 }
